@@ -1,22 +1,6 @@
-import pytest
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-
-
-@pytest.fixture
-def driver():
-    options = Options()
-    options.add_argument("--window-size=1280,900")
-    options.add_argument("--disable-blink-features=AutomationControlled")
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
-
-    driver = webdriver.Chrome(options=options)
-    yield driver
-    driver.quit()
 
 
 def test_google_search(driver):
